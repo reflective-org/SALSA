@@ -902,8 +902,7 @@ SUBROUTINE m7_averageproperties(kproma, kbdim, klev, krow, paernl, paerml, pttn,
 
         ztmp1(1:kproma,:) = MERGE(zinsvol(1:kproma,:,jclass), 1._dp, ll1(1:kproma,:)) !SF 1. is a dummy val.
 
-        ztmp1(1:kproma,:) = zinsmas(1:kproma,:,jclass) / ztmp1(1:kproma,:)
-        prhop(1:kproma,:,jclass) = MERGE(ztmp1(1:kproma,:), prhop(1:kproma,:,jclass), ll1(1:kproma,:))
+        prhop(1:kproma,:,jclass) = MERGE(zinsmas(1:kproma,:,jclass) / ztmp1(1:kproma,:), prhop(1:kproma,:,jclass), ll1(1:kproma,:))
 
         ztmp1(1:kproma,:) = ram2cmr(jclass)*((ztmp1(1:kproma,:)/z4piover3)**(1._dp/3._dp))
 
